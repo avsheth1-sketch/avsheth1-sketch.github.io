@@ -4,25 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anushka Sheth | Portfolio</title>
-  <meta name="description" content="Anushka Sheth — Solutions Analyst | Strategy, Supply Chain, and Data" />
+  <meta name="description" content="Anushka Sheth — Solutions Analyst | Strategy, Supply Chain" />
 
   <style>
     :root{
-      /* Sage + forest palette */
-      --forest: #0f2d1f;
-      --forest-2: #123826;
-      --sage: #9bbf9b;
-      --sage-2: #cfe3cf;
-      --cream: #f5f2ea;
-      --ink: #0f1720;
-      --muted: rgba(15, 23, 32, .70);
-      --glass: rgba(245, 242, 234, .70);
-      --glass-2: rgba(245, 242, 234, .85);
-      --line: rgba(15, 45, 31, .12);
-      --shadow: 0 18px 45px rgba(0, 0, 0, .18);
-      --shadow2: 0 10px 26px rgba(0, 0, 0, .14);
+      --forest: #0a1f14;
+      --forest-2: #0d2818;
+      --forest-3: #1a3f2e;
+      --sage: #7aa876;
+      --sage-2: #a8d5a8;
+      --sage-light: #d4e8d4;
+      --cream:#f5f2ea;
+      --ink:#0a1410;
+      --muted: rgba(10,20,16,.75);
+
+      --glass: rgba(245,242,234,.70);
+      --glass-2: rgba(245,242,234,.90);
+      --line: rgba(10,45,31,.15);
+
+      --shadow: 0 18px 45px rgba(0,0,0,.22);
+      --shadow2: 0 10px 26px rgba(0,0,0,.16);
+
       --radius: 20px;
-      --max: 1060px;
+      --max: 1120px;
     }
 
     *{ margin:0; padding:0; box-sizing:border-box; }
@@ -32,50 +36,48 @@
       color: var(--ink);
       min-height: 100vh;
       background:
-        radial-gradient(1100px 700px at 10% 5%, rgba(155,191,155,.45), transparent 55%),
-        radial-gradient(900px 600px at 90% 10%, rgba(18,56,38,.30), transparent 55%),
-        linear-gradient(135deg, var(--sage-2) 0%, #e9efe6 30%, var(--sage-2) 65%, #dfe9de 100%);
+        radial-gradient(1200px 800px at 8% 3%, rgba(122,168,118,.50), transparent 50%),
+        radial-gradient(1000px 700px at 92% 8%, rgba(13,40,24,.35), transparent 50%),
+        radial-gradient(800px 600px at 50% 95%, rgba(122,168,118,.25), transparent 60%),
+        linear-gradient(135deg, #c8e6c9 0%, #e8f5e9 25%, #c8e6c9 50%, #dcedc8 75%, #c8e6c9 100%);
       padding: 26px 16px 70px;
-    }
-
-    .wrap{ max-width: var(--max); margin: 0 auto; }
-
-    /* Header / Hero */
-    header.hero{
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, rgba(15,45,31,.92) 0%, rgba(18,56,38,.92) 50%, rgba(15,45,31,.92) 100%);
-      color: var(--cream);
-      box-shadow: var(--shadow);
-      overflow: hidden;
       position: relative;
     }
-
-    .hero-inner{
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 18px;
-      align-items: center;
-      padding: 22px;
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 15% 20%, rgba(122,168,118,.08), transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(10,40,24,.06), transparent 45%);
+      pointer-events: none;
+      z-index: -1;
     }
 
-    @media (max-width: 900px){
-      .hero-inner{ grid-template-columns: 1fr; }
-    }
+    a{ color: inherit; }
+    .wrap{ max-width: var(--max); margin: 0 auto; }
 
+    /* ---------- TOP NAV ---------- */
     .topbar{
       display:flex;
       justify-content: space-between;
       align-items:center;
       gap: 10px;
-      padding: 14px 18px 0 18px;
+      padding: 10px 0 14px;
       flex-wrap: wrap;
+      color: rgba(15,45,31,.92);
     }
     .brand{
       display:flex;
       align-items:center;
       gap: 10px;
-      font-weight: 800;
+      font-weight: 1000;
       letter-spacing: .2px;
+      font-size: 1.25rem; /* bigger name */
     }
     .leaf{
       width: 12px; height: 12px;
@@ -89,26 +91,75 @@
       gap: 10px;
     }
     .nav a{
-      color: rgba(245,242,234,.92);
       text-decoration: none;
       padding: 8px 10px;
       border-radius: 12px;
-      background: rgba(245,242,234,.08);
-      border: 1px solid rgba(245,242,234,.16);
+      background: rgba(15,45,31,.06);
+      border: 1px solid rgba(15,45,31,.12);
       transition: transform .12s ease, background .2s ease;
       font-size: .95rem;
+      font-weight: 850;
+      color: rgba(15,45,31,.92);
     }
-    .nav a:hover{ background: rgba(245,242,234,.14); transform: translateY(-1px); }
+    .nav a:hover{ background: rgba(15,45,31,.09); transform: translateY(-1px); }
 
-    .hero-left h1{
-      font-size: clamp(1.85rem, 2.8vw, 2.55rem);
-      line-height: 1.1;
-      margin-bottom: 10px;
+    /* ---------- TWO-COLUMN LAYOUT ---------- */
+    .layout{
+      display:grid;
+      grid-template-columns: 360px 1fr;
+      gap: 16px;
+      align-items:start;
     }
-    .subtitle{
+    @media (max-width: 980px){
+      .layout{ grid-template-columns: 1fr; }
+    }
+
+    /* ---------- LEFT BIO CARD ---------- */
+    .bio{
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(10,31,20,.94) 0%, rgba(13,40,24,.94) 50%, rgba(10,31,20,.94) 100%);
+      color: var(--cream);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: sticky;
+      top: 14px;
+      border: 1px solid rgba(122,168,118,.15);
+    }
+    @media (max-width: 980px){
+      .bio{ position: relative; top: 0; }
+    }
+    .bio-inner{ padding: 18px; text-align: left; }
+
+    .photo-wrap{
+      width: 210px;
+      height: 210px;
+      border-radius: 999px;
+      padding: 10px;
+      margin: 6px auto 14px;
+      background: radial-gradient(circle at 30% 20%, rgba(155,191,155,.75), rgba(245,242,234,.05) 65%);
+      border: 1px solid rgba(245,242,234,.18);
+      box-shadow: 0 18px 40px rgba(0,0,0,.20);
+    }
+    .photo{
+      width: 100%;
+      height: 100%;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 6px solid rgba(245,242,234,.55);
+      background: rgba(245,242,234,.18);
+      display:block;
+    }
+
+    .bio h1{
+      font-size: 1.55rem;
+      line-height: 1.15;
+      margin: 6px 0 10px;
+      letter-spacing: .2px;
+    }
+    .tagline{
       color: rgba(245,242,234,.88);
-      font-size: 1.05rem;
-      line-height: 1.6;
+      font-size: 1.02rem;
+      line-height: 1.55;
       margin-bottom: 14px;
     }
 
@@ -116,7 +167,7 @@
       display:flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin: 12px 0 16px;
+      margin: 10px 0 14px;
     }
     .chip{
       display:inline-flex;
@@ -143,16 +194,16 @@
       padding: 10px 14px;
       border-radius: 14px;
       text-decoration:none;
-      font-weight: 700;
+      font-weight: 900;
       font-size: .95rem;
       transition: transform .12s ease, box-shadow .2s ease, background .2s ease;
       border: 1px solid rgba(245,242,234,.20);
     }
     .btn.primary{
-      background: linear-gradient(135deg, var(--sage) 0%, #7fb08a 100%);
-      color: #0b1a12;
+      background: linear-gradient(135deg, var(--sage-2) 0%, #6fa06a 100%);
+      color: #051108;
       border: none;
-      box-shadow: 0 12px 26px rgba(155,191,155,.22);
+      box-shadow: 0 12px 26px rgba(122,168,118,.28);
     }
     .btn.ghost{
       background: rgba(245,242,234,.10);
@@ -160,51 +211,15 @@
     }
     .btn:hover{ transform: translateY(-1px); }
 
-    /* Headshot */
-    .hero-right{
-      display:flex;
-      justify-content: center;
-      align-items: center;
-      padding: 8px 0 10px;
-    }
-    .photo-wrap{
-      width: 260px;
-      height: 260px;
-      border-radius: 999px;
-      padding: 10px;
-      background: radial-gradient(circle at 30% 20%, rgba(155,191,155,.75), rgba(245,242,234,.05) 65%);
-      border: 1px solid rgba(245,242,234,.18);
-      box-shadow: 0 18px 40px rgba(0,0,0,.20);
-    }
-    .photo{
-      width: 100%;
-      height: 100%;
-      border-radius: 999px;
-      object-fit: cover;
-      border: 6px solid rgba(245,242,234,.55);
-      background: rgba(245,242,234,.18);
-      display:block;
-    }
-    .photo-caption{
-      text-align:center;
-      margin-top: 10px;
-      font-size: .92rem;
-      color: rgba(245,242,234,.82);
-    }
-
-    /* Main card */
+    /* ---------- RIGHT MAIN CARD ---------- */
     .main{
-      margin-top: 16px;
       border-radius: var(--radius);
       background: var(--glass-2);
       border: 1px solid var(--line);
       box-shadow: var(--shadow2);
       overflow: hidden;
     }
-
-    .main-inner{
-      padding: 18px;
-    }
+    .main-inner{ padding: 18px; }
 
     .section-head{
       display:flex;
@@ -217,13 +232,26 @@
     .section-head h2{
       font-size: 1.2rem;
       letter-spacing:.2px;
+      color: rgba(15,45,31,.92);
     }
     .hint{
       color: var(--muted);
       font-size: .95rem;
     }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15,45,31,.08);
+      border: 1px solid rgba(15,45,31,.12);
+      color: rgba(15,45,31,.85);
+      font-weight: 900;
+      font-size: .9rem;
+    }
 
-    /* Interactive Category Picker (tabs) */
+    /* Tabs */
     .tabs{
       display:flex;
       flex-wrap: wrap;
@@ -237,17 +265,17 @@
       background: rgba(15,45,31,.06);
       border: 1px solid rgba(15,45,31,.12);
       color: rgba(15,45,31,.92);
-      font-weight: 750;
+      font-weight: 900;
       font-size: .95rem;
       transition: transform .12s ease, background .2s ease, border .2s ease;
       user-select: none;
     }
     .tab:hover{ transform: translateY(-1px); background: rgba(15,45,31,.09); }
     .tab[aria-selected="true"]{
-      background: linear-gradient(135deg, rgba(15,45,31,.92), rgba(18,56,38,.92));
+      background: linear-gradient(135deg, rgba(10,31,20,.92), rgba(13,40,24,.92));
       color: var(--cream);
-      border-color: rgba(15,45,31,.10);
-      box-shadow: 0 10px 18px rgba(15,45,31,.18);
+      border-color: rgba(122,168,118,.20);
+      box-shadow: 0 10px 18px rgba(10,31,20,.22);
     }
 
     .panel{
@@ -259,7 +287,6 @@
       border: 1px solid rgba(15,45,31,.12);
     }
     .panel.active{ display:block; }
-
     @keyframes fadeUp{
       from { opacity: 0; transform: translateY(6px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -278,55 +305,279 @@
       flex-wrap: wrap;
       margin-bottom: 6px;
     }
-    .role{ font-weight: 850; }
-    .where{ font-weight: 700; color: rgba(15,45,31,.88); }
+    .role{ font-weight: 950; }
+    .where{ font-weight: 800; color: rgba(15,45,31,.88); }
     .when{ color: rgba(15,23,32,.66); font-size: .93rem; }
 
     ul{ margin-left: 18px; color: rgba(15,23,32,.72); line-height: 1.55; }
     li{ margin: 6px 0; }
 
-    /* Footer */
     footer{
       margin-top: 14px;
       text-align:center;
       color: rgba(15,45,31,.75);
       font-size: .95rem;
     }
-    footer a{ color: rgba(15,45,31,.85); }
 
-    /* Little “selected” badge */
-    .badge{
+    /* =========================================================
+       SLOTHY ON A VINE
+       ========================================================= */
+    .slothy-zone{
+      position: fixed;
+      left: 10px;
+      bottom: 6px;
+      width: 220px;
+      height: 560px;
+      z-index: 10000;
+      pointer-events: none;
+    }
+    @media (max-width: 560px){
+      .slothy-zone{ left: 6px; width: 200px; height: 520px; }
+    }
+
+    .vine-svg{
+      position:absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      width: 140px;
+      height: 100%;
+      opacity: .98;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.14));
+      pointer-events: none;
+    }
+
+    .slothy-float{
+      position:absolute;
+      left: 50%;
+      top: 70px;
+      transform: translateX(-50%);
+      width: 220px;
+      pointer-events: auto;
+      cursor: pointer;
+      animation: slothyRide 9.5s ease-in-out infinite; /* slower */
+      filter: drop-shadow(0 18px 28px rgba(0,0,0,.18));
+    }
+    @keyframes slothyRide{
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%     { transform: translateX(-50%) translateY(140px); }
+    }
+
+    .slothy-bubble{
+      position: absolute;
+      left: 50%;
+      top: -74px;
+      transform: translateX(-50%) rotate(-2deg);
+      z-index: 3;
+      width: 210px;
+      background: rgba(245,242,234,.98);
+      border: 2px solid rgba(15,45,31,.20);
+      border-radius: 18px;
+      padding: 12px 14px;
+      font-weight: 1000;
+      font-size: 1rem;
+      color: rgba(15,45,31,.95);
+      box-shadow: 0 18px 36px rgba(0,0,0,.18);
+      text-align: center;
+    }
+    .slothy-bubble:after{
+      content:"";
+      position:absolute;
+      left: 50%;
+      bottom: -10px;
+      width: 16px;
+      height: 16px;
+      background: rgba(245,242,234,.98);
+      border-right: 2px solid rgba(15,45,31,.20);
+      border-bottom: 2px solid rgba(15,45,31,.20);
+      transform: translateX(-50%) rotate(45deg);
+    }
+    .slothy-name{
       display:inline-flex;
-      align-items:center;
-      gap: 8px;
+      margin-top: 6px;
       padding: 6px 10px;
       border-radius: 999px;
-      background: rgba(15,45,31,.08);
+      background: rgba(155,191,155,.20);
+      border: 1px solid rgba(15,45,31,.14);
+      font-size: .88rem;
+      font-weight: 1000;
+      color: rgba(15,45,31,.88);
+    }
+
+    .slothy-card{
+      position: relative;
+      width: 220px;
+      padding-top: 12px;
+      z-index: 2;
+    }
+    .slothy-hint{
+      text-align:center;
+      margin-top: 10px;
+      font-weight: 950;
+      font-size: .95rem;
+      color: rgba(15,45,31,.82);
+      pointer-events:none;
+      user-select:none;
+    }
+    .slothy-svg{
+      width: 220px;
+      height: 220px;
+      display:block;
+    }
+
+    /* ---------- CHAT PANEL ---------- */
+    .sloth-panel{
+      position: fixed;
+      left: 240px;
+      bottom: 18px;
+      width: min(420px, calc(100vw - 260px));
+      border-radius: 18px;
+      background: rgba(245,242,234,.96);
+      border: 1px solid rgba(15,45,31,.18);
+      box-shadow: 0 18px 45px rgba(0,0,0,.22);
+      overflow: hidden;
+      z-index: 10001;
+      display: none;
+    }
+    @media (max-width: 560px){
+      .sloth-panel{
+        left: 8px;
+        width: calc(100vw - 16px);
+        bottom: 94px;
+      }
+    }
+    .sloth-panel.open{ display:block; animation: slothPop .18s ease-out; }
+    @keyframes slothPop{
+      from { opacity: 0; transform: translateY(8px) scale(.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .sloth-head{
+      background: linear-gradient(135deg, rgba(15,45,31,.92), rgba(18,56,38,.92));
+      color: var(--cream);
+      padding: 12px 12px;
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    .sloth-title{ font-weight: 1000; font-size: .98rem; letter-spacing:.2px; }
+    .sloth-sub{ font-weight: 800; opacity: .85; font-size: .82rem; }
+    .sloth-close{
+      cursor:pointer;
+      border: 1px solid rgba(245,242,234,.22);
+      background: rgba(245,242,234,.10);
+      color: var(--cream);
+      border-radius: 12px;
+      padding: 6px 10px;
+      font-weight: 950;
+    }
+
+    .sloth-body{ padding: 12px; }
+    .sloth-messages{
+      max-height: 280px;
+      overflow: auto;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-right: 4px;
+      scroll-behavior: smooth;
+    }
+    .msg{ display:flex; gap: 10px; align-items:flex-start; }
+    .msg .bubble{
+      padding: 10px 12px;
+      border-radius: 14px;
       border: 1px solid rgba(15,45,31,.12);
-      color: rgba(15,45,31,.85);
-      font-weight: 700;
-      font-size: .9rem;
+      line-height: 1.45;
+      font-size: .95rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,.05);
+      max-width: 100%;
+      white-space: pre-wrap;
+    }
+    .msg.sloth .bubble{
+      background: rgba(155,191,155,.22);
+      color: rgba(15,45,31,.92);
+    }
+    .msg.user{ justify-content: flex-end; }
+    .msg.user .bubble{
+      background: rgba(15,45,31,.92);
+      color: var(--cream);
+      border-color: rgba(245,242,234,.16);
+    }
+
+    .quick{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0 10px;
+    }
+    .quick button{
+      cursor:pointer;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(15,45,31,.06);
+      border: 1px solid rgba(15,45,31,.12);
+      color: rgba(15,45,31,.92);
+      font-weight: 950;
+      font-size: .88rem;
+      transition: transform .12s ease, background .2s ease;
+    }
+    .quick button:hover{ transform: translateY(-1px); background: rgba(15,45,31,.09); }
+
+    .sloth-input{
+      display:flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .sloth-input input{
+      flex: 1;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(15,45,31,.16);
+      background: rgba(245,242,234,.92);
+      outline: none;
+      font-size: .95rem;
+    }
+    .sloth-input input:focus{
+      box-shadow: 0 0 0 6px rgba(155,191,155,.22);
+      border-color: rgba(15,45,31,.22);
+    }
+    .sloth-input button{
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: none;
+      cursor:pointer;
+      font-weight: 1000;
+      background: linear-gradient(135deg, var(--sage) 0%, #7fb08a 100%);
+      color: #0b1a12;
+      box-shadow: 0 10px 22px rgba(155,191,155,.18);
+      white-space: nowrap;
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
+    <div class="topbar">
+      <div class="brand"><span class="leaf"></span> Anushka Sheth</div>
+      <nav class="nav" aria-label="Primary">
+        <a href="#top">Home</a>
+        <a href="#explore">Explore</a>
+        <a href="./resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+      </nav>
+    </div>
 
-    <header class="hero" id="top">
-      <div class="topbar">
-        <div class="brand"><span class="leaf"></span> Anushka Sheth</div>
-        <nav class="nav" aria-label="Primary">
-          <a href="#top">Home</a>
-          <a href="#explore">Explore</a>
-          <a href="resume.pdf" target="_blank" rel="noreferrer">Resume</a>
-        </nav>
-      </div>
+    <div class="layout" id="top">
+      <!-- LEFT: Face + Bio -->
+      <aside class="bio">
+        <div class="bio-inner">
+          <div class="photo-wrap">
+            <img class="photo" src="headshot.png" alt="Portrait photo" />
+          </div>
 
-      <div class="hero-inner">
-        <div class="hero-left">
-          <h1>Solutions Analyst • Strategy & Supply Chain • Data</h1>
-          <p class="subtitle">
+          <!-- removed "Data" -->
+          <h1>Solutions Analyst • Strategy & Supply Chain</h1>
+          <p class="tagline">
             I build clear, practical solutions—mixing analytics, process improvement, and stakeholder alignment.
             Currently pursuing an M.S. in Economics (Expected May 2026).
           </p>
@@ -339,190 +590,279 @@
           </div>
 
           <div class="btns">
-            <a class="btn primary" href="#explore">Explore my profile</a>
-            <a class="btn ghost" href="resume.pdf" target="_blank" rel="noreferrer">Download Resume</a>
+            <a class="btn primary" href="#explore">Explore</a>
+            <a class="btn ghost" href="./resume.pdf" target="_blank" rel="noreferrer">Download Resume</a>
           </div>
         </div>
+      </aside>
 
-        <div class="hero-right">
-          <div>
-            <div class="photo-wrap">
-              <!-- Put your image in the same folder as index.html named "headshot.png" -->
-              <img class="photo" src="headshot.png" alt="Portrait photo" />
+      <!-- RIGHT: Tabs + Panels -->
+      <main class="main" id="explore">
+        <div class="main-inner">
+          <div class="section-head">
+            <h2>Explore by category</h2>
+            <div class="hint">
+              Choose a category →
+              <span class="badge" id="selectedBadge">Selected: Experience</span>
             </div>
-            <div class="photo-caption">Hi! I’m Anushka 👋</div>
           </div>
-        </div>
-      </div>
-    </header>
 
-    <section class="main" id="explore" style="margin-top:16px;">
-      <div class="main-inner">
-        <div class="section-head">
-          <h2>Explore by category</h2>
-          <div class="hint">
-            Choose a category to reveal more details →
-            <span class="badge" id="selectedBadge">Selected: Experience</span>
+          <div class="tabs" role="tablist" aria-label="Profile categories">
+            <button type="button" class="tab" role="tab" aria-selected="true"  aria-controls="panel-experience" id="tab-experience" data-target="panel-experience">Experience</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="panel-school"     id="tab-school"     data-target="panel-school">School</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="panel-skills"     id="tab-skills"     data-target="panel-skills">Skills</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="panel-leadership" id="tab-leadership" data-target="panel-leadership">Leadership</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="panel-contact"    id="tab-contact"    data-target="panel-contact">Contact</button>
           </div>
-        </div>
 
-        <!-- Tabs -->
-        <div class="tabs" role="tablist" aria-label="Profile categories">
-          <button class="tab" role="tab" aria-selected="true" aria-controls="panel-experience" id="tab-experience" data-target="panel-experience">Experience</button>
-          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-school" id="tab-school" data-target="panel-school">School</button>
-          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-skills" id="tab-skills" data-target="panel-skills">Skills</button>
-          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-leadership" id="tab-leadership" data-target="panel-leadership">Leadership</button>
-          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-contact" id="tab-contact" data-target="panel-contact">Contact</button>
-        </div>
-
-        <!-- Panels -->
-        <div class="panel active" role="tabpanel" id="panel-experience" aria-labelledby="tab-experience">
-          <div class="block">
-            <div class="row">
-              <div>
-                <div class="role">Solutions Analyst</div>
-                <div class="where">Deloitte Consulting LLP — Gilbert, Arizona</div>
+          <div class="panel active" role="tabpanel" id="panel-experience" aria-labelledby="tab-experience">
+            <div class="block">
+              <div class="row">
+                <div>
+                  <div class="role">Solutions Analyst</div>
+                  <div class="where">Deloitte Consulting LLP — Gilbert, Arizona</div>
+                </div>
+                <div class="when">Sep 2022 – Jun 2025</div>
               </div>
-              <div class="when">Sep 2022 – Jun 2025</div>
+              <ul>
+                <li>Led procurement and inventory tracking for the U.S. Treasury through lead-time analysis and implementation of a WMS + barcode labeling process.</li>
+                <li>Supported Product Lifecycle Management strategy via a Capability Maturity Model for existing systems at a major Aerospace & Defense client.</li>
+                <li>Drove operational efficiency for a medical device client by redesigning workflows and introducing new ways of working.</li>
+                <li>Created a SAP-to-Teamcenter data migration strategy guide used by partners on implementations.</li>
+                <li>Assessed GenAI impact by developing an AI-based supplier management concept for performance and decision support.</li>
+                <li>Conducted senior-leader interviews as a core Model-Based Enterprise (MBE) team member to assess organizational maturity.</li>
+              </ul>
             </div>
-            <ul>
-              <li>Led procurement and inventory tracking for the U.S. Treasury through lead-time analysis and implementation of a WMS + barcode labeling process.</li>
-              <li>Supported Product Lifecycle Management strategy via a Capability Maturity Model for existing systems at a major Aerospace & Defense client.</li>
-              <li>Drove operational efficiency for a medical device client by redesigning workflows and introducing new ways of working.</li>
-              <li>Created a SAP-to-Teamcenter data migration strategy guide used by partners on implementations.</li>
-              <li>Assessed GenAI impact by developing an AI-based supplier management concept for performance and decision support.</li>
-              <li>Conducted senior-leader interviews as a core Model-Based Enterprise (MBE) team member to assess organizational maturity.</li>
-            </ul>
-          </div>
 
-          <div class="block">
-            <div class="row">
-              <div>
-                <div class="role">Strategic Planning Intern</div>
-                <div class="where">Honeywell Aerospace — Phoenix, Arizona</div>
+            <div class="block">
+              <div class="row">
+                <div>
+                  <div class="role">Strategic Planning Intern</div>
+                  <div class="where">Honeywell Aerospace — Phoenix, Arizona</div>
+                </div>
+                <div class="when">May 2021 – Aug 2021</div>
               </div>
-              <div class="when">May 2021 – Aug 2021</div>
+              <ul>
+                <li>Modeled 15+ economic variables impacting global airline flight hours using regression in Excel; presented with graphs and heat maps.</li>
+                <li>Performed competitive analysis on radar/drone products and delivered go-to-market recommendations to senior leadership.</li>
+                <li>Completed cost-benefit analysis for in-house lithium-ion battery manufacturing considering competitor strategy and feasibility.</li>
+                <li>Collected and analyzed SEC backlog data across major aircraft OEMs to build demand insights.</li>
+              </ul>
             </div>
-            <ul>
-              <li>Modeled 15+ economic variables impacting global airline flight hours using regression in Excel; presented with graphs and heat maps.</li>
-              <li>Performed competitive analysis on radar/drone products and delivered go-to-market recommendations to senior leadership.</li>
-              <li>Completed cost-benefit analysis for in-house lithium-ion battery manufacturing considering competitor strategy and feasibility.</li>
-              <li>Collected and analyzed SEC backlog data across major aircraft OEMs to build demand insights.</li>
-            </ul>
-          </div>
 
-          <div class="block">
-            <div class="row">
-              <div>
-                <div class="role">Economics Teaching Assistant</div>
-                <div class="where">Arizona State University — Tempe, Arizona</div>
+            <div class="block">
+              <div class="row">
+                <div>
+                  <div class="role">Economics Teaching Assistant</div>
+                  <div class="where">Arizona State University — Tempe, Arizona</div>
+                </div>
+                <div class="when">Aug 2020 – Dec 2020</div>
               </div>
-              <div class="when">Aug 2020 – Dec 2020</div>
+              <ul>
+                <li>Supported 300+ students by tutoring and answering coursework questions in upper-level economics courses.</li>
+              </ul>
             </div>
-            <ul>
-              <li>Supported 300+ students by tutoring and answering coursework questions in upper-level economics courses.</li>
-            </ul>
           </div>
-        </div>
 
-        <div class="panel" role="tabpanel" id="panel-school" aria-labelledby="tab-school">
-          <div class="block">
-            <div class="row">
-              <div>
-                <div class="role">Master of Science, Economics</div>
-                <div class="where">W. P. Carey School of Business, Arizona State University</div>
+          <div class="panel" role="tabpanel" id="panel-school" aria-labelledby="tab-school">
+            <div class="block">
+              <div class="row">
+                <div>
+                  <div class="role">Master of Science, Economics</div>
+                  <div class="where">W. P. Carey School of Business, Arizona State University</div>
+                </div>
+                <div class="when">2025 – Present (Expected May 2026)</div>
               </div>
-              <div class="when">2025 – Present (Expected May 2026)</div>
             </div>
-          </div>
 
-          <div class="block">
-            <div class="row">
-              <div>
-                <div class="role">Bachelor of Science, Economics</div>
-                <div class="where">W. P. Carey School of Business, Arizona State University</div>
+            <div class="block">
+              <div class="row">
+                <div>
+                  <div class="role">Bachelor of Science, Economics</div>
+                  <div class="where">W. P. Carey School of Business, Arizona State University</div>
+                </div>
+                <div class="when">2018 – 2022</div>
               </div>
-              <div class="when">2018 – 2022</div>
+              <ul>
+                <li>Awards: New American University Scholarship (Provost’s Award — highest award for non-AZ students)</li>
+              </ul>
             </div>
-            <ul>
-              <li>Awards: New American University Scholarship (Provost’s Award — highest award for non-AZ students)</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="panel" role="tabpanel" id="panel-skills" aria-labelledby="tab-skills">
-          <div class="block">
-            <div class="row"><div class="role">Technical & Business Tools</div></div>
-            <ul>
-              <li>Google Suite (Docs, Drive, Slides, Sheets), Microsoft Office (PowerPoint, Word, Excel)</li>
-              <li>STATA, HTML, JavaScript, Python, R</li>
-              <li>TOAD with SQL, Oracle, Oracle EBS, Visio, proposal development</li>
-            </ul>
           </div>
 
-          <div class="block">
-            <div class="row"><div class="role">Languages</div></div>
-            <ul>
-              <li>Fluent: English, Hindi, Gujarati</li>
-              <li>Beginner: Spanish, Marathi</li>
-            </ul>
-          </div>
-        </div>
+          <div class="panel" role="tabpanel" id="panel-skills" aria-labelledby="tab-skills">
+            <div class="block">
+              <div class="row"><div class="role">Technical & Business Tools</div></div>
+              <ul>
+                <li>Google Suite (Docs, Drive, Slides, Sheets), Microsoft Office (PowerPoint, Word, Excel)</li>
+                <li>STATA, HTML, JavaScript, Python, R</li>
+                <li>TOAD with SQL, Oracle, Oracle EBS, Visio, proposal development</li>
+              </ul>
+            </div>
 
-        <div class="panel" role="tabpanel" id="panel-leadership" aria-labelledby="tab-leadership">
-          <div class="block">
-            <div class="row">
-              <div>
-                <div class="role">President, Student Economic Association</div>
-                <div class="where">Arizona State University</div>
+            <div class="block">
+              <div class="row"><div class="role">Languages</div></div>
+              <ul>
+                <li>Fluent: English, Hindi, Gujarati</li>
+                <li>Beginner: Spanish, Marathi</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="panel" role="tabpanel" id="panel-leadership" aria-labelledby="tab-leadership">
+            <div class="block">
+              <div class="row">
+                <div>
+                  <div class="role">Active President, Student Economic Association</div>
+                  <div class="where">Arizona State University</div>
+                </div>
+                <div class="when">Aug 2019 – May 2021</div>
               </div>
-              <div class="when">Aug 2019 – May 2021</div>
-            </div>
-            <ul>
-              <li>Led student programming and community-building initiatives for economics students.</li>
-            </ul>
-          </div>
-
-          <div class="block">
-            <div class="row"><div class="role">Want to make this “fun”?</div></div>
-            <ul>
-              <li>Add 2–4 “Projects” (class, consulting-style writeups, or data work). I can format them as clickable cards.</li>
-              <li>Add a “Fun Facts” mini section (interests, favorite books/podcasts, etc.).</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="panel" role="tabpanel" id="panel-contact" aria-labelledby="tab-contact">
-          <div class="block">
-            <div class="row"><div class="role">Let’s connect</div></div>
-            <ul>
-              <li>Email: <a href="mailto:anushkasheth2@gmail.com">anushkasheth2@gmail.com</a></li>
-              <li>Phone: <a href="tel:+14809254899">+1 (480) 925-4899</a></li>
-              <li>LinkedIn: <a href="https://linkedin.com/in/anushkasheth2" target="_blank" rel="noreferrer">linkedin.com/in/anushkasheth2</a></li>
-              <li>Resume: <a href="resume.pdf" target="_blank" rel="noreferrer">resume.pdf</a></li>
-            </ul>
-
-            <div class="btns" style="margin-top: 12px;">
-              <a class="btn primary" href="mailto:anushkasheth2@gmail.com">Email Me</a>
-              <a class="btn ghost" href="https://linkedin.com/in/anushkasheth2" target="_blank" rel="noreferrer">LinkedIn</a>
-              <a class="btn ghost" href="resume.pdf" target="_blank" rel="noreferrer">Resume PDF</a>
+              <ul>
+                <li>Led student programming and community-building initiatives for economics students.</li>
+              </ul>
             </div>
           </div>
-        </div>
 
-      </div>
-    </section>
+          <div class="panel" role="tabpanel" id="panel-contact" aria-labelledby="tab-contact">
+            <div class="block">
+              <div class="row"><div class="role">Let’s connect</div></div>
+              <ul>
+                <li>Email: <a href="mailto:anushkasheth2@gmail.com">anushkasheth2@gmail.com</a></li>
+                <li>Phone: <a href="tel:+14809254899">+1 (480) 925-4899</a></li>
+                <li>LinkedIn: <a href="https://linkedin.com/in/anushkasheth2" target="_blank" rel="noreferrer">linkedin.com/in/anushkasheth2</a></li>
+                <li>Resume: <a href="./resume.pdf" target="_blank" rel="noreferrer">resume.pdf</a></li>
+              </ul>
+
+              <div class="btns" style="margin-top: 12px;">
+                <a class="btn primary" href="mailto:anushkasheth2@gmail.com">Email Me</a>
+                <a class="btn ghost" href="https://linkedin.com/in/anushkasheth2" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a class="btn ghost" href="./resume.pdf" target="_blank" rel="noreferrer">Resume PDF</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
 
     <footer>
       © <span id="year"></span> Anushka Sheth • Sage & Forest theme • Built for GitHub Pages
     </footer>
   </div>
 
+  <!-- =========================
+       SLOTHY ON A VINE (CLICK)
+       ========================= -->
+  <div class="slothy-zone" aria-label="Slothy assistant">
+    <svg class="vine-svg" viewBox="0 0 140 560" aria-hidden="true">
+      <path d="M70 0
+               C40 70, 95 120, 70 190
+               C45 260, 95 310, 70 380
+               C45 450, 95 500, 70 560"
+            fill="none"
+            stroke="#1e4a33"
+            stroke-width="10"
+            stroke-linecap="round"/>
+      <path d="M74 0
+               C46 72, 98 120, 74 190
+               C50 260, 98 312, 74 380
+               C50 450, 98 500, 74 560"
+            fill="none"
+            stroke="#8cc29a"
+            stroke-opacity=".55"
+            stroke-width="4"
+            stroke-linecap="round"/>
+      <g opacity=".95">
+        <path d="M55 88c-14 4-22 18-14 30 18 4 32-10 32-24-4-6-10-8-18-6z" fill="#9bbf9b" stroke="#123826" stroke-opacity=".22"/>
+        <path d="M86 132c14 4 22 18 14 30-18 4-32-10-32-24 4-6 10-8 18-6z" fill="#9bbf9b" stroke="#123826" stroke-opacity=".22"/>
+        <path d="M54 248c-14 4-22 18-14 30 18 4 32-10 32-24-4-6-10-8-18-6z" fill="#8cc29a" stroke="#123826" stroke-opacity=".22"/>
+        <path d="M86 300c14 4 22 18 14 30-18 4-32-10-32-24 4-6 10-8 18-6z" fill="#8cc29a" stroke="#123826" stroke-opacity=".22"/>
+        <path d="M56 420c-14 4-22 18-14 30 18 4 32-10 32-24-4-6-10-8-18-6z" fill="#9bbf9b" stroke="#123826" stroke-opacity=".22"/>
+      </g>
+    </svg>
+
+    <div class="slothy-float" id="slothyOpen" role="button" tabindex="0" aria-label="Open Slothy chat">
+      <div class="slothy-bubble">
+        ask me about Anushka!
+        <div class="slothy-name">Slothy 🦥</div>
+      </div>
+
+      <div class="slothy-card">
+        <svg class="slothy-svg" viewBox="0 0 260 260" fill="none" aria-hidden="true">
+          <path d="M170 40c18 2 28 18 24 34l-20 88c-3 14-16 23-30 20-14-3-23-16-20-30l20-88c3-14 12-25 26-24z"
+                fill="#6b3f2a" opacity=".95"/>
+          <path d="M164 52c9 1 14 9 12 17l-20 88c-1 6-7 10-13 9-6-1-10-7-9-13l20-88c1-6 4-12 10-13z"
+                fill="#7b4a31" opacity=".85"/>
+          <path d="M186 54c14-10 28-8 38 6-8 18-26 24-44 18 0-10 2-18 6-24z" fill="#9bbf9b" stroke="#123826" stroke-opacity=".25"/>
+          <path d="M196 56c-3 7-7 12-13 16" stroke="#123826" stroke-opacity=".35" stroke-width="2" stroke-linecap="round"/>
+
+          <path d="M78 120c-22 18-28 50-8 76 20 26 60 34 92 16 30-16 44-54 28-84-18-34-74-38-112-8z"
+                fill="#b98f6f"/>
+          <path d="M116 140c-20 10-28 34-14 54 14 20 42 26 62 14 20-12 26-38 12-58-12-18-38-22-60-10z"
+                fill="#d7b69a" opacity=".95"/>
+
+          <circle cx="105" cy="92" r="56" fill="#b98f6f"/>
+          <circle cx="105" cy="100" r="44" fill="#e7d2bf" opacity=".95"/>
+          <ellipse cx="84" cy="96" rx="22" ry="20" fill="#e7d2bf"/>
+          <ellipse cx="126" cy="96" rx="22" ry="20" fill="#e7d2bf"/>
+
+          <circle cx="84" cy="96" r="11" fill="#2b1b14"/>
+          <circle cx="126" cy="96" r="11" fill="#2b1b14"/>
+          <circle cx="80" cy="92" r="4" fill="#ffffff" opacity=".95"/>
+          <circle cx="122" cy="92" r="4" fill="#ffffff" opacity=".95"/>
+
+          <path d="M105 110c-8 0-14 6-14 12 0 10 10 18 14 18s14-8 14-18c0-6-6-12-14-12z"
+                fill="#2b1b14" opacity=".85"/>
+          <path d="M92 140c6 8 20 8 26 0" stroke="#2b1b14" stroke-opacity=".75" stroke-width="5" stroke-linecap="round"/>
+
+          <path d="M150 132c12-18 26-26 40-26 10 0 18 6 20 14-16 14-28 28-36 46-8 0-16-6-20-14-4-8-4-14-4-20z"
+                fill="#b98f6f"/>
+          <path d="M96 150c-12 8-18 18-20 32 12 10 26 10 40 2 0-12-6-24-20-34z"
+                fill="#b98f6f"/>
+
+          <path d="M196 118c8-2 14 2 18 10" stroke="#2b1b14" stroke-opacity=".45" stroke-width="3" stroke-linecap="round"/>
+          <path d="M198 128c7-2 12 2 16 8" stroke="#2b1b14" stroke-opacity=".45" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+
+        <div class="slothy-hint">Click Slothy</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat Panel -->
+  <div class="sloth-panel" id="slothPanel" aria-hidden="true">
+    <div class="sloth-head">
+      <div>
+        <div class="sloth-title">Slothy the Recruiter Helper</div>
+        <div class="sloth-sub">Ask anything a recruiter might ask</div>
+      </div>
+      <button class="sloth-close" id="slothClose" type="button">Close</button>
+    </div>
+
+    <div class="sloth-body">
+      <div class="sloth-messages" id="slothMessages" aria-live="polite"></div>
+
+      <div class="quick" aria-label="Quick questions">
+        <button type="button" data-q="Tell me your elevator pitch.">Elevator pitch</button>
+        <button type="button" data-q="What are your top skills?">Top skills</button>
+        <button type="button" data-q="What impact did you have at Deloitte?">Deloitte impact</button>
+        <button type="button" data-q="Why should we hire you?">Why hire you</button>
+        <button type="button" data-q="What roles are you targeting?">Target roles</button>
+      </div>
+
+      <div class="sloth-input">
+        <input id="slothInput" type="text" placeholder="Type a question… (e.g., 'Tell me about your experience')" />
+        <button id="slothSend" type="button">Send</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     // Year
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Tabs logic
+    // Tabs
     const tabs = Array.from(document.querySelectorAll(".tab"));
     const panels = Array.from(document.querySelectorAll(".panel"));
     const badge = document.getElementById("selectedBadge");
@@ -530,21 +870,171 @@
     function activate(targetId){
       panels.forEach(p => p.classList.toggle("active", p.id === targetId));
       tabs.forEach(t => t.setAttribute("aria-selected", t.dataset.target === targetId ? "true" : "false"));
-
-      // update badge text nicely
       const activeTab = tabs.find(t => t.dataset.target === targetId);
-      if (activeTab) badge.textContent = "Selected: " + activeTab.textContent.trim();
+      if (badge && activeTab) badge.textContent = "Selected: " + activeTab.textContent.trim();
     }
-
     tabs.forEach(tab => {
       tab.addEventListener("click", () => activate(tab.dataset.target));
       tab.addEventListener("keydown", (e) => {
-        // basic keyboard nav
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          activate(tab.dataset.target);
-        }
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); activate(tab.dataset.target); }
       });
+    });
+    activate("panel-experience");
+
+    // Slothy chat
+    const slothyOpen = document.getElementById("slothyOpen");
+    const slothPanel  = document.getElementById("slothPanel");
+    const slothClose  = document.getElementById("slothClose");
+    const slothMessages = document.getElementById("slothMessages");
+    const slothInput  = document.getElementById("slothInput");
+    const slothSend   = document.getElementById("slothSend");
+    const quickBtns   = Array.from(document.querySelectorAll(".quick button"));
+
+    const QA = [
+      { keys: ["elevator","pitch","summary","tell me about yourself","about you"], answer:
+`Here’s the quick version:
+• I’m a Solutions Analyst with consulting experience across procurement/inventory, operational efficiency, and PLM strategy work.
+• I use analytics + stakeholder alignment to turn messy processes into clear, implementable solutions.
+• I’m currently pursuing an M.S. in Economics (Expected May 2026) and I’m excited about roles in strategy/ops or supply chain.` },
+      { keys: ["skills","top skills","strengths","tools"], answer:
+`Top skills:
+• Consulting delivery: stakeholder interviews, requirements, process redesign
+• Analytics: regression work, structured analysis, insights storytelling
+• Supply chain / operations: inventory visibility, WMS/barcoding concepts, efficiency improvements
+Tools: Excel/PowerPoint, Google Suite, STATA, SQL tooling (TOAD), Oracle/Oracle EBS, Visio, plus HTML/JS/Python/R.` },
+      { keys: ["deloitte","impact","experience","what did you do"], answer:
+`At Deloitte, highlights include:
+• Improved procurement + inventory tracking for a U.S. Treasury effort by supporting WMS + barcode labeling and lead-time analysis.
+• Supported PLM strategy via a capability maturity model for an Aerospace & Defense client.
+• Drove operational efficiency for a medical device client through workflow redesign and new ways of working.
+• Built a SAP → Teamcenter migration strategy guide used by partners on implementations.` },
+      { keys: ["hire","why should we","why you","fit"], answer:
+`Why hire Anushka:
+• I combine analytics with practical execution—so recommendations actually ship.
+• I’m comfortable with ambiguity, can structure the problem, and align stakeholders quickly.
+• I’ve worked across industries (public sector, A&D, medical devices) and adapt fast.
+Tell me the role title and I’ll tailor this answer to it.` },
+      { keys: ["roles","role","target","looking for","seeking"], answer:
+`Target roles:
+• Strategy / Operations Analyst or Consultant
+• Supply Chain / Procurement Analyst
+I’m most interested in roles that mix structured analysis with implementation and measurable impact.` },
+      { keys: ["education","school","degree","masters","ms"], answer:
+`Education:
+• M.S. Economics — W. P. Carey, Arizona State University (Expected May 2026)
+• B.S. Economics — W. P. Carey, Arizona State University (2018–2022)
+Award: New American University Scholarship (Provost’s Award).` },
+      { keys: ["contact","email","phone","reach"], answer:
+`Contact:
+• Email: anushkasheth2@gmail.com
+• Phone: +1 (480) 925-4899
+• LinkedIn: linkedin.com/in/anushkasheth2
+Resume: open “Resume” in the top navigation.` }
+    ];
+
+    function normalize(t){ return (t || "").toLowerCase().trim(); }
+
+    function slothSay(text){
+      if (!slothMessages) return;
+      const row = document.createElement("div");
+      row.className = "msg sloth";
+      const bubble = document.createElement("div");
+      bubble.className = "bubble";
+      bubble.textContent = text;
+      row.appendChild(bubble);
+      slothMessages.appendChild(row);
+      slothMessages.scrollTop = slothMessages.scrollHeight;
+    }
+
+    function userSay(text){
+      if (!slothMessages) return;
+      const row = document.createElement("div");
+      row.className = "msg user";
+      const bubble = document.createElement("div");
+      bubble.className = "bubble";
+      bubble.textContent = text;
+      row.appendChild(bubble);
+      slothMessages.appendChild(row);
+      slothMessages.scrollTop = slothMessages.scrollHeight;
+    }
+
+    function answerQuestion(q){
+      const nq = normalize(q);
+      let best = null, bestScore = 0;
+      for (const item of QA){
+        let score = 0;
+        for (const k of item.keys) if (nq.includes(k)) score++;
+        if (score > bestScore){ bestScore = score; best = item; }
+      }
+      if (best && bestScore > 0) slothSay(best.answer);
+      else slothSay(
+`I can help! Try:
+• “Elevator pitch”
+• “Top skills”
+• “Deloitte impact”
+• “Education”
+• “Contact”
+Or ask “Why should we hire you?”`
+      );
+    }
+
+    function openSloth(){
+      if (!slothPanel) return;
+      slothPanel.classList.add("open");
+      slothPanel.setAttribute("aria-hidden", "false");
+      if (slothMessages && slothMessages.childElementCount === 0){
+        slothSay("Hi! I’m Slothy 🦥 I answer recruiter questions about Anushka. Ask me anything!");
+        slothSay("Quick start: click a button below or type your own question.");
+      }
+      if (slothInput) setTimeout(() => slothInput.focus(), 50);
+    }
+
+    function closeSloth(){
+      if (!slothPanel) return;
+      slothPanel.classList.remove("open");
+      slothPanel.setAttribute("aria-hidden", "true");
+    }
+
+    function toggleSloth(){
+      if (!slothPanel) return;
+      if (slothPanel.classList.contains("open")) closeSloth();
+      else openSloth();
+    }
+
+    if (slothyOpen){
+      slothyOpen.addEventListener("click", toggleSloth);
+      slothyOpen.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleSloth(); }
+      });
+    }
+    if (slothClose) slothClose.addEventListener("click", closeSloth);
+
+    quickBtns.forEach(b => {
+      b.addEventListener("click", () => {
+        const q = b.getAttribute("data-q") || "Tell me your elevator pitch.";
+        userSay(q);
+        answerQuestion(q);
+      });
+    });
+
+    function send(){
+      if (!slothInput) return;
+      const q = slothInput.value.trim();
+      if (!q) return;
+      userSay(q);
+      slothInput.value = "";
+      answerQuestion(q);
+    }
+
+    if (slothSend) slothSend.addEventListener("click", send);
+    if (slothInput){
+      slothInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") send();
+        if (e.key === "Escape") closeSloth();
+      });
+    }
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeSloth();
     });
   </script>
 </body>
