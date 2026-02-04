@@ -300,6 +300,16 @@
       font-size: .95rem;
     }
 
+    /* Gallery image hover effect */
+    .gallery-img {
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery-img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 28px rgba(0,0,0,.25);
+    }
+
     /* =========================================================
        SLOTHY ON A VINE
        ========================================================= */
@@ -710,10 +720,10 @@
               <div class="row"><div class="role">Jewelry Design & Crafting</div></div>
               <p style="margin: 10px 0; color: rgba(15,45,31,.85);">I enjoy designing and crafting sterling silver jewelry with semi-precious stones. Each piece is handmade with care and attention to detail.</p>
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 12px;">
-                <img src="jewelry-1.png" alt="Blue topaz silver ring" style="width: 100%; border-radius: 12px; object-fit: cover; max-height: 250px;">
-                <img src="jewelry-2.png" alt="Smoky quartz ring" style="width: 100%; border-radius: 12px; object-fit: cover; max-height: 250px;">
-                <img src="image.png" alt="Silver rings" style="width: 100%; border-radius: 12px; object-fit: cover; max-height: 250px;">
-                <img src="jewelry-4.png" alt="Brown stone ring" style="width: 100%; border-radius: 12px; object-fit: cover; max-height: 250px;">
+                <img src="jewelry-1.png" alt="Blue topaz silver ring" class="gallery-img" style="width: 100%; border-radius: 12px; object-fit: cover; max-height: 250px;">
+                <img src="jewelry-2.png" alt="Smoky quartz ring" class="gallery-img" style="width: 100%; border-radius: 12px; object-fit: cover; max-height: 250px;">
+                <img src="image.png" alt="Silver rings" class="gallery-img" style="width: 100%; border-radius: 12px; object-fit: cover; max-height: 250px;">
+                <img src="jewelry-4.png" alt="Brown stone ring" class="gallery-img" style="width: 100%; border-radius: 12px; object-fit: cover; max-height: 250px;">
               </div>
             </div>
           </div>
