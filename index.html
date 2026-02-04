@@ -1,72 +1,551 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My Website</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anushka Sheth | Portfolio</title>
+  <meta name="description" content="Anushka Sheth — Solutions Analyst | Strategy, Supply Chain, and Data" />
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+  <style>
+    :root{
+      /* Sage + forest palette */
+      --forest: #0f2d1f;
+      --forest-2: #123826;
+      --sage: #9bbf9b;
+      --sage-2: #cfe3cf;
+      --cream: #f5f2ea;
+      --ink: #0f1720;
+      --muted: rgba(15, 23, 32, .70);
+      --glass: rgba(245, 242, 234, .70);
+      --glass-2: rgba(245, 242, 234, .85);
+      --line: rgba(15, 45, 31, .12);
+      --shadow: 0 18px 45px rgba(0, 0, 0, .18);
+      --shadow2: 0 10px 26px rgba(0, 0, 0, .14);
+      --radius: 20px;
+      --max: 1060px;
+    }
 
-        .container {
-            background: white;
-            padding: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            max-width: 600px;
-        }
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+      background:
+        radial-gradient(1100px 700px at 10% 5%, rgba(155,191,155,.45), transparent 55%),
+        radial-gradient(900px 600px at 90% 10%, rgba(18,56,38,.30), transparent 55%),
+        linear-gradient(135deg, var(--sage-2) 0%, #e9efe6 30%, var(--sage-2) 65%, #dfe9de 100%);
+      padding: 26px 16px 70px;
+    }
 
-        h1 {
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-size: 2.5rem;
-        }
+    .wrap{ max-width: var(--max); margin: 0 auto; }
 
-        p {
-            color: #555;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
+    /* Header / Hero */
+    header.hero{
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(15,45,31,.92) 0%, rgba(18,56,38,.92) 50%, rgba(15,45,31,.92) 100%);
+      color: var(--cream);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
 
-        .button {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background 0.3s ease;
-            margin: 0.5rem;
-        }
+    .hero-inner{
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      align-items: center;
+      padding: 22px;
+    }
 
-        .button:hover {
-            background: #764ba2;
-        }
-    </style>
+    @media (max-width: 900px){
+      .hero-inner{ grid-template-columns: 1fr; }
+    }
+
+    .topbar{
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 10px;
+      padding: 14px 18px 0 18px;
+      flex-wrap: wrap;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+    .leaf{
+      width: 12px; height: 12px;
+      border-radius: 999px;
+      background: var(--sage);
+      box-shadow: 0 0 0 6px rgba(155,191,155,.18);
+    }
+    .nav{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .nav a{
+      color: rgba(245,242,234,.92);
+      text-decoration: none;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: rgba(245,242,234,.08);
+      border: 1px solid rgba(245,242,234,.16);
+      transition: transform .12s ease, background .2s ease;
+      font-size: .95rem;
+    }
+    .nav a:hover{ background: rgba(245,242,234,.14); transform: translateY(-1px); }
+
+    .hero-left h1{
+      font-size: clamp(1.85rem, 2.8vw, 2.55rem);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .subtitle{
+      color: rgba(245,242,234,.88);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .meta{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 12px 0 16px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 14px;
+      background: rgba(245,242,234,.10);
+      border: 1px solid rgba(245,242,234,.16);
+      font-size: .92rem;
+      color: rgba(245,242,234,.92);
+    }
+    .chip a{ color: inherit; text-decoration:none; }
+    .chip a:hover{ text-decoration: underline; }
+
+    .btns{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .btn{
+      display:inline-block;
+      padding: 10px 14px;
+      border-radius: 14px;
+      text-decoration:none;
+      font-weight: 700;
+      font-size: .95rem;
+      transition: transform .12s ease, box-shadow .2s ease, background .2s ease;
+      border: 1px solid rgba(245,242,234,.20);
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--sage) 0%, #7fb08a 100%);
+      color: #0b1a12;
+      border: none;
+      box-shadow: 0 12px 26px rgba(155,191,155,.22);
+    }
+    .btn.ghost{
+      background: rgba(245,242,234,.10);
+      color: var(--cream);
+    }
+    .btn:hover{ transform: translateY(-1px); }
+
+    /* Headshot */
+    .hero-right{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8px 0 10px;
+    }
+    .photo-wrap{
+      width: 260px;
+      height: 260px;
+      border-radius: 999px;
+      padding: 10px;
+      background: radial-gradient(circle at 30% 20%, rgba(155,191,155,.75), rgba(245,242,234,.05) 65%);
+      border: 1px solid rgba(245,242,234,.18);
+      box-shadow: 0 18px 40px rgba(0,0,0,.20);
+    }
+    .photo{
+      width: 100%;
+      height: 100%;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 6px solid rgba(245,242,234,.55);
+      background: rgba(245,242,234,.18);
+      display:block;
+    }
+    .photo-caption{
+      text-align:center;
+      margin-top: 10px;
+      font-size: .92rem;
+      color: rgba(245,242,234,.82);
+    }
+
+    /* Main card */
+    .main{
+      margin-top: 16px;
+      border-radius: var(--radius);
+      background: var(--glass-2);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow2);
+      overflow: hidden;
+    }
+
+    .main-inner{
+      padding: 18px;
+    }
+
+    .section-head{
+      display:flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .section-head h2{
+      font-size: 1.2rem;
+      letter-spacing:.2px;
+    }
+    .hint{
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    /* Interactive Category Picker (tabs) */
+    .tabs{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 12px 0 14px;
+    }
+    .tab{
+      cursor:pointer;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(15,45,31,.06);
+      border: 1px solid rgba(15,45,31,.12);
+      color: rgba(15,45,31,.92);
+      font-weight: 750;
+      font-size: .95rem;
+      transition: transform .12s ease, background .2s ease, border .2s ease;
+      user-select: none;
+    }
+    .tab:hover{ transform: translateY(-1px); background: rgba(15,45,31,.09); }
+    .tab[aria-selected="true"]{
+      background: linear-gradient(135deg, rgba(15,45,31,.92), rgba(18,56,38,.92));
+      color: var(--cream);
+      border-color: rgba(15,45,31,.10);
+      box-shadow: 0 10px 18px rgba(15,45,31,.18);
+    }
+
+    .panel{
+      display:none;
+      animation: fadeUp .22s ease-out;
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(245,242,234,.70);
+      border: 1px solid rgba(15,45,31,.12);
+    }
+    .panel.active{ display:block; }
+
+    @keyframes fadeUp{
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .block{
+      padding: 12px 0;
+      border-top: 1px solid rgba(15,45,31,.10);
+    }
+    .block:first-child{ border-top:none; padding-top: 0; }
+    .row{
+      display:flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+    .role{ font-weight: 850; }
+    .where{ font-weight: 700; color: rgba(15,45,31,.88); }
+    .when{ color: rgba(15,23,32,.66); font-size: .93rem; }
+
+    ul{ margin-left: 18px; color: rgba(15,23,32,.72); line-height: 1.55; }
+    li{ margin: 6px 0; }
+
+    /* Footer */
+    footer{
+      margin-top: 14px;
+      text-align:center;
+      color: rgba(15,45,31,.75);
+      font-size: .95rem;
+    }
+    footer a{ color: rgba(15,45,31,.85); }
+
+    /* Little “selected” badge */
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15,45,31,.08);
+      border: 1px solid rgba(15,45,31,.12);
+      color: rgba(15,45,31,.85);
+      font-weight: 700;
+      font-size: .9rem;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Welcome to My Website</h1>
-        <p>This is your new website||. Edit this file to add your own content and personalize it!</p>
-        <p>
-            <a href="#" class="button">Get Started</a>
-            <a href="#" class="button">Learn More</a>
-        </p>
-    </div>
+  <div class="wrap">
+
+    <header class="hero" id="top">
+      <div class="topbar">
+        <div class="brand"><span class="leaf"></span> Anushka Sheth</div>
+        <nav class="nav" aria-label="Primary">
+          <a href="#top">Home</a>
+          <a href="#explore">Explore</a>
+          <a href="resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+        </nav>
+      </div>
+
+      <div class="hero-inner">
+        <div class="hero-left">
+          <h1>Solutions Analyst • Strategy & Supply Chain • Data</h1>
+          <p class="subtitle">
+            I build clear, practical solutions—mixing analytics, process improvement, and stakeholder alignment.
+            Currently pursuing an M.S. in Economics (Expected May 2026).
+          </p>
+
+          <div class="meta">
+            <div class="chip">📍 Arizona (US)</div>
+            <div class="chip">📧 <a href="mailto:anushkasheth2@gmail.com">anushkasheth2@gmail.com</a></div>
+            <div class="chip">📞 <a href="tel:+14809254899">+1 (480) 925-4899</a></div>
+            <div class="chip">🔗 <a href="https://linkedin.com/in/anushkasheth2" target="_blank" rel="noreferrer">LinkedIn</a></div>
+          </div>
+
+          <div class="btns">
+            <a class="btn primary" href="#explore">Explore my profile</a>
+            <a class="btn ghost" href="resume.pdf" target="_blank" rel="noreferrer">Download Resume</a>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div>
+            <div class="photo-wrap">
+              <!-- Put your image in the same folder as index.html named "headshot.png" -->
+              <img class="photo" src="headshot.png" alt="Portrait photo" />
+            </div>
+            <div class="photo-caption">Hi! I’m Anushka 👋</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="main" id="explore" style="margin-top:16px;">
+      <div class="main-inner">
+        <div class="section-head">
+          <h2>Explore by category</h2>
+          <div class="hint">
+            Choose a category to reveal more details →
+            <span class="badge" id="selectedBadge">Selected: Experience</span>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs" role="tablist" aria-label="Profile categories">
+          <button class="tab" role="tab" aria-selected="true" aria-controls="panel-experience" id="tab-experience" data-target="panel-experience">Experience</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-school" id="tab-school" data-target="panel-school">School</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-skills" id="tab-skills" data-target="panel-skills">Skills</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-leadership" id="tab-leadership" data-target="panel-leadership">Leadership</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-contact" id="tab-contact" data-target="panel-contact">Contact</button>
+        </div>
+
+        <!-- Panels -->
+        <div class="panel active" role="tabpanel" id="panel-experience" aria-labelledby="tab-experience">
+          <div class="block">
+            <div class="row">
+              <div>
+                <div class="role">Solutions Analyst</div>
+                <div class="where">Deloitte Consulting LLP — Gilbert, Arizona</div>
+              </div>
+              <div class="when">Sep 2022 – Jun 2025</div>
+            </div>
+            <ul>
+              <li>Led procurement and inventory tracking for the U.S. Treasury through lead-time analysis and implementation of a WMS + barcode labeling process.</li>
+              <li>Supported Product Lifecycle Management strategy via a Capability Maturity Model for existing systems at a major Aerospace & Defense client.</li>
+              <li>Drove operational efficiency for a medical device client by redesigning workflows and introducing new ways of working.</li>
+              <li>Created a SAP-to-Teamcenter data migration strategy guide used by partners on implementations.</li>
+              <li>Assessed GenAI impact by developing an AI-based supplier management concept for performance and decision support.</li>
+              <li>Conducted senior-leader interviews as a core Model-Based Enterprise (MBE) team member to assess organizational maturity.</li>
+            </ul>
+          </div>
+
+          <div class="block">
+            <div class="row">
+              <div>
+                <div class="role">Strategic Planning Intern</div>
+                <div class="where">Honeywell Aerospace — Phoenix, Arizona</div>
+              </div>
+              <div class="when">May 2021 – Aug 2021</div>
+            </div>
+            <ul>
+              <li>Modeled 15+ economic variables impacting global airline flight hours using regression in Excel; presented with graphs and heat maps.</li>
+              <li>Performed competitive analysis on radar/drone products and delivered go-to-market recommendations to senior leadership.</li>
+              <li>Completed cost-benefit analysis for in-house lithium-ion battery manufacturing considering competitor strategy and feasibility.</li>
+              <li>Collected and analyzed SEC backlog data across major aircraft OEMs to build demand insights.</li>
+            </ul>
+          </div>
+
+          <div class="block">
+            <div class="row">
+              <div>
+                <div class="role">Economics Teaching Assistant</div>
+                <div class="where">Arizona State University — Tempe, Arizona</div>
+              </div>
+              <div class="when">Aug 2020 – Dec 2020</div>
+            </div>
+            <ul>
+              <li>Supported 300+ students by tutoring and answering coursework questions in upper-level economics courses.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="panel-school" aria-labelledby="tab-school">
+          <div class="block">
+            <div class="row">
+              <div>
+                <div class="role">Master of Science, Economics</div>
+                <div class="where">W. P. Carey School of Business, Arizona State University</div>
+              </div>
+              <div class="when">2025 – Present (Expected May 2026)</div>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="row">
+              <div>
+                <div class="role">Bachelor of Science, Economics</div>
+                <div class="where">W. P. Carey School of Business, Arizona State University</div>
+              </div>
+              <div class="when">2018 – 2022</div>
+            </div>
+            <ul>
+              <li>Awards: New American University Scholarship (Provost’s Award — highest award for non-AZ students)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="panel-skills" aria-labelledby="tab-skills">
+          <div class="block">
+            <div class="row"><div class="role">Technical & Business Tools</div></div>
+            <ul>
+              <li>Google Suite (Docs, Drive, Slides, Sheets), Microsoft Office (PowerPoint, Word, Excel)</li>
+              <li>STATA, HTML, JavaScript, Python, R</li>
+              <li>TOAD with SQL, Oracle, Oracle EBS, Visio, proposal development</li>
+            </ul>
+          </div>
+
+          <div class="block">
+            <div class="row"><div class="role">Languages</div></div>
+            <ul>
+              <li>Fluent: English, Hindi, Gujarati</li>
+              <li>Beginner: Spanish, Marathi</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="panel-leadership" aria-labelledby="tab-leadership">
+          <div class="block">
+            <div class="row">
+              <div>
+                <div class="role">President, Student Economic Association</div>
+                <div class="where">Arizona State University</div>
+              </div>
+              <div class="when">Aug 2019 – May 2021</div>
+            </div>
+            <ul>
+              <li>Led student programming and community-building initiatives for economics students.</li>
+            </ul>
+          </div>
+
+          <div class="block">
+            <div class="row"><div class="role">Want to make this “fun”?</div></div>
+            <ul>
+              <li>Add 2–4 “Projects” (class, consulting-style writeups, or data work). I can format them as clickable cards.</li>
+              <li>Add a “Fun Facts” mini section (interests, favorite books/podcasts, etc.).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="panel-contact" aria-labelledby="tab-contact">
+          <div class="block">
+            <div class="row"><div class="role">Let’s connect</div></div>
+            <ul>
+              <li>Email: <a href="mailto:anushkasheth2@gmail.com">anushkasheth2@gmail.com</a></li>
+              <li>Phone: <a href="tel:+14809254899">+1 (480) 925-4899</a></li>
+              <li>LinkedIn: <a href="https://linkedin.com/in/anushkasheth2" target="_blank" rel="noreferrer">linkedin.com/in/anushkasheth2</a></li>
+              <li>Resume: <a href="resume.pdf" target="_blank" rel="noreferrer">resume.pdf</a></li>
+            </ul>
+
+            <div class="btns" style="margin-top: 12px;">
+              <a class="btn primary" href="mailto:anushkasheth2@gmail.com">Email Me</a>
+              <a class="btn ghost" href="https://linkedin.com/in/anushkasheth2" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a class="btn ghost" href="resume.pdf" target="_blank" rel="noreferrer">Resume PDF</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Anushka Sheth • Sage & Forest theme • Built for GitHub Pages
+    </footer>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Tabs logic
+    const tabs = Array.from(document.querySelectorAll(".tab"));
+    const panels = Array.from(document.querySelectorAll(".panel"));
+    const badge = document.getElementById("selectedBadge");
+
+    function activate(targetId){
+      panels.forEach(p => p.classList.toggle("active", p.id === targetId));
+      tabs.forEach(t => t.setAttribute("aria-selected", t.dataset.target === targetId ? "true" : "false"));
+
+      // update badge text nicely
+      const activeTab = tabs.find(t => t.dataset.target === targetId);
+      if (activeTab) badge.textContent = "Selected: " + activeTab.textContent.trim();
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => activate(tab.dataset.target));
+      tab.addEventListener("keydown", (e) => {
+        // basic keyboard nav
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          activate(tab.dataset.target);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
